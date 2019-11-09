@@ -161,11 +161,19 @@ function startWatching(opts) {
 
         // XXX: commands might be still run concurrently
         if (opts.command) {
-            debouncedRun(
-                opts.command
-                    .replace(/\{path\}/ig, path)
-                    .replace(/\{event\}/ig, event)
-            );
+            if (opts.debounce > 0) {
+                debouncedRun(
+                    opts.command
+                        .replace(/\{path\}/ig, path)
+                        .replace(/\{event\}/ig, event)
+                );    
+            } else {
+                throttledRun(
+                    opts.command
+                        .replace(/\{path\}/ig, path)
+                        .replace(/\{event\}/ig, event)
+                );
+            }
         }
     });
 
