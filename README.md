@@ -1,2 +1,1 @@
-# chokidar-cli
-Moved to github.com/open-npm-tools/chokidar-cli
+Moved to https://github.com/open-npm-tools/chokidar-cli.
